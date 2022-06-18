@@ -34,7 +34,7 @@ async function getResults(searchTerm) {
 function displayResults(results) {
     const movieString = results.map(gif => `
         <div class="movie">
-            <img src="${posterImage+posterPath}" />
+            <img src="https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg" />
         </div>
         <div class="title"> "${title}</div>
         <div class="imageInfo">"${imageInfo}</div>
