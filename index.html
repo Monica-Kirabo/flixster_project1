@@ -5,21 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flixster</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Flixster</h1>
-    <form>
-      <label>search </label>
-      <input type="text" id="movie" required/>
-      <button id='clicker' value="submit">Search</button>
 
-      <button id='button' >Load more</button>
-    </form>  
-    <div id="here">  </div>
-    <script src="script.js">
+    <form id="search-form">
+        <input id="search-input" name="search" placeholder="Enter a search term" class="search" type="text" />
+        <button type="submit" class="search-btn" id="searchBtn">Search here</button>
+    </form>
+    
+    <div id="movieArea" class="movie">
+      
+    <div class="title"> </div>
+    <div class="imageInfo"> </div>
 
-    </script>
+</div>
+<div class="rating"> </div>
+<div class="show-more-area">
+  <button id="show-me-more-btn" type="button" class="search-btn hidden">Load more</button>
+</div>
 
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
