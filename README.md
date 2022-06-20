@@ -58,7 +58,7 @@ If I had more time, I would find a way to understand why most of my codes were n
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The HTML and CSS part worked really well for me. The script.js part didn't go well and kept giving me an error about my key which made it hard for me to figure out the rest of the project.
 
 ### Open-source libraries used
 
@@ -67,3 +67,5 @@ Add your response here
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+Shout out to Cynthia and Yasmin for taking a look at my code and trying to help me find the issue.
