@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: gray;
+    background-color:darkslategrey;
     color:aliceblue;
     font-family: Arial, sans-serif;
 
@@ -12,12 +12,13 @@ body {
 
 h1 {
     text-transform: uppercase;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     margin: 20px 0;
 }
 
 #search-form {
-    text-align: center;
+    text-align:center;
     margin: 20px 0;
 }
 
@@ -32,7 +33,7 @@ h1 {
     margin-left: 10px;
 }
 
-#gif-area {
+#movieArea {
     display: flex;
     flex-wrap: wrap;
 }

@@ -27,8 +27,8 @@ function displayResults(data) {
     <img src=  "https://images.tmdb.org/t/p/w500${data.poster_path}" >
   </div> 
         <div class="title"> "${data.title}</div>
-        <div class="imageInfo">"${data.overview}</div>
-        <div class="rating">"${data.vote_count} </div>
+      
+  <div class="rating">"${data.vote_count} </div>
     </div>
 
     `).join('');
@@ -44,18 +44,14 @@ window.onload=()=>{
     
 
 }
-    
-
 async function getdata(searchTerm){
- 
-    
+
     const response = await  fetch(movieSearchUrl + "?api_key=" + apiKey + "&query=" + searchTerm+"&page="+currentApiPage);
     const jsonResponse = await response.json();
     console.log( jsonResponse);
     return jsonResponse;
 
 }
-
 
 async function handleFormSubmit(event) {
     event.preventDefault();
@@ -72,6 +68,7 @@ searchForm.addEventListener('submit', handleFormSubmit);
 
 
 async function handleShowMeMoreClick(event) {
+    event.preventDefault();
     currentApiPage++;
     const results = await getdata(currentSearchTerm);
     displayResults(results);
@@ -92,7 +89,7 @@ async function handleShowMeMoreClick(event) {
 showMeMoreBtn.addEventListener('click', handleShowMeMoreClick); 
 
 
-
+        <div class="imageInfo">"${data.overview}</div>
 
 */
 
