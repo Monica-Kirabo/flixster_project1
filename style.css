@@ -36,6 +36,7 @@ h1 {
 #movieArea {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .gif {
@@ -46,6 +47,7 @@ h1 {
 img {
     width: 200px;
     border-radius: 6px;
+    object-fit: cover;
 
 }
 
@@ -56,3 +58,5 @@ img {
 .hidden {
     display: none;
 } 
+
+

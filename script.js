@@ -26,9 +26,9 @@ function displayResults(data) {
     <div class="movie">
     <img src=  "https://images.tmdb.org/t/p/w500${data.poster_path}" >
   </div> 
-        <div class="title"> "${data.title}</div>
+        <span class="title"> "${data.title}</span>
       
-  <div class="rating">"${data.vote_count} </div>
+  <span class="rating">"${data.vote_count} </span>
     </div>
 
     `).join('');
