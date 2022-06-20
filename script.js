@@ -10,7 +10,7 @@ const searchInput = document.getElementById('search-input');
 const searchForm = document.getElementById('search-form');
 const showMeMoreBtn = document.getElementById('showMeMoreBtn');
 const IMGPATH= `https://image.tmdb.org/t/p/w1280`;
-
+var currentApiPage=1;
 async function nowplaying(){
     const response = await fetch(nowPlayingUrl + "?api_key=" + apiKey);
     const jsonResponse = await response.json();
@@ -49,31 +49,14 @@ window.onload=()=>{
 async function getdata(searchTerm){
  
     
-    const response = await  fetch(movieSearchUrl + "?api_key=" + apiKey + "&query=" + searchTerm);
+    const response = await  fetch(movieSearchUrl + "?api_key=" + apiKey + "&query=" + searchTerm+"&page="+currentApiPage);
     const jsonResponse = await response.json();
     console.log( jsonResponse);
     return jsonResponse;
-  //  displayResults(jsonResponse); 
-//const offset = currentApiPage * pageSize;
-//const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key= ${apiKey}&q=${searchTerm}`).then(response => response.json())
-  //.then(data => console.log(data));
-//return response;
- // displayResults(response);
 
 }
 
-/*
-function generateHTML(movies){
-movies.foreach(data=>{
-    const  movieTitle=document.createElement('p');
-    movieTitle.innerHTML=`${data.original_title}`;
-  const  movieRating=document.createElement('p');
-    movieRating.innerHTML=`${data.original_Rating}`;
-    movieTitle.append(movieTitle);
-    movieRating.append(movieRating);
-});
-movieArea.innerHTML=output;
-} */
+
 async function handleFormSubmit(event) {
     event.preventDefault();
    // movieArea.innerHTML = '';
@@ -81,133 +64,42 @@ async function handleFormSubmit(event) {
     const results = await getdata(currentSearchTerm);
     displayResults(results);
     searchInput.value = '';
-    //currentApiPage++;
+    currentApiPage++;
   // showMeMoreBtn.classList.remove('hidden');
 }
 
 searchForm.addEventListener('submit', handleFormSubmit);
 
+
 async function handleShowMeMoreClick(event) {
+    currentApiPage++;
     const results = await getdata(currentSearchTerm);
     displayResults(results);
-    currentApiPage++;
+    
 }
 
-showMeMoreBtn.addEventListener('click', handleShowMeMoreClick); 
-/*
-function formSubmit(ev){
-    var formel=document.querySelector("form");
-    formel.addEventListener("submit",(ev)=>{
-        console.log(ev.target.searchTerm.value);
-        getdata(ev.target.searchTerm.value);
-    });
-}
-const movieAr=document.querySelector('movieArea');
-movieAr.addEventListener(`submit`,formSubmit(onclick))
-
-
-
-
-
-
+showMeMoreBtn.addEventListener('click', handleShowMeMoreClick);
 
 /*
-function generateMore(movie){
-    return '<img src="${movie.img}">
-            <span>${movie.name}</span>
-            <span>${movie.rating}</span> 
-
-*/
-
-
-
-
-
-
-
-
-
-
-/*
-const base_url='https://www.themoviedb.org/';
-const posterPath='/kqjL17yufvn9OVLyXYpvtyrFfak.jpg';
-const posterImage='https://image.tmdb.org/t/p/w500';
-
-const apiKey = '26a6ca6a064e61eeb4b31ebf6a5a3c01';
-const pageSize = 1;
-const API_URL= "https://api.themoviedb.org/3/search/movie/now_playing?api_key=6a6ca6a064e61eeb4b31ebf6a5a3c01" ;
-
-
-
-
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
-const movieAreaDiv = document.getElementById('movieArea');
-const showMeMoreBtn = document.getElementById('show-me-more-btn');
-
-//fetch(API_URL).then(response=>response.json()).then(results=>displayResults(respd.results));
-async function getmovies(url){
-    const res=await fetch(url);
-    const respd=await res.json();
-    console.log(respd);
-    displayResults(respd.results);
-
-}
-async function getResults(searchTerm) {
-    const offset = currentApiPage * pageSize;
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`);
-    const jsonResponse = await response.json();
-    return jsonResponse.data;
-}
-
-function displayResults(results) {
-    const movieString = results.map(gif => `
-        <div class="movie">
-            <img src="https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg" />
-        </div>
-        <div class="title"> "${title}</div>
-        <div class="imageInfo">"${imageInfo}</div>
-        <div class="rating">"${rating} </div>
-    </div>
-
-    `).join('');
-
-    movieArea.innerHTML = movieArea.innerHTML + movieString;
-}
-
-
-
-async function handleFormSubmit(event) {
-    event.preventDefault();
-    movieArea.innerHTML = '';
-    currentSearchTerm = searchInput.value;
-    const results = await getResults(currentSearchTerm);
-    const output = await getmovie(currentSearchTerm);
-    displayResults(results);
-    displayResults(output);
-    searchInput.value = '';
-    currentApiPage++;
-    showMeMoreBtn.classList.remove('hidden');
-}
-
-searchForm.addEventListener('submit', handleFormSubmit);
-
 async function handleShowMeMoreClick(event) {
-    const results = await getResults(currentSearchTerm);
-    displayResults(results);
     currentApiPage++;
+    const results = await getdata(currentSearchTerm);
+  
+    displayResults(results);
+ 
 }
 
 showMeMoreBtn.addEventListener('click', handleShowMeMoreClick); 
-window.onload=function(){
-    getmovies(API_URL);
-}
+
+
+
 
 */
 
 
 
-            
+
+
 
 
 
