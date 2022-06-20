@@ -1,30 +1,49 @@
 
-
-const movieSearchUrl = "https://api.themoviedb.org/3/search/movie"
-const nowPlayingUrl = "https://api.themoviedb.org/3/search/movie/now_playing";
-const movieImageUrl = "https://api.themoviedb.org/3/movie";
+const movieSearchUrl = `https://api.themoviedb.org/3/search/movie`
+const nowPlayingUrl = `https://api.themoviedb.org/3/movie/now_playing`;
+const movieImageUrl = `https://api.themoviedb.org/3/movie`;
 const apiKey="26a6ca6a064e61eeb4b31ebf6a5a3c01";
 //const apiUrl=" https://api.themoviedb.org/3/search/movie/now_playing"
 const movieArea= document.getElementById('movieArea');
 var currentSearchTerm='';
 const searchInput = document.getElementById('search-input');
 const searchForm = document.getElementById('search-form');
-const IMGPATH= "https://image.tmdb.org/t/p/w1280";
-/*
-window.onload=function(){
-const moviedisplay=document.querySelector('movieArea');
-    moviedisplay.addEventListener(`show`, ()=>{
-        const dis=moviedisplay.value;
-        
-        nowplaying(dis);
-    });
-} 
-*/
-function nowplaying(nowPlayingUrl){
-var result=fetch(nowPlayingUrl + "?api_key=" + apikey).then(response => response.json())
-  .then(data => console.log(data));
-  console.log(result);
+const IMGPATH= `https://image.tmdb.org/t/p/w1280`;
+
+async function nowplaying(){
+    const response = await fetch(nowPlayingUrl + "?api_key=" + apiKey);
+    const jsonResponse = await response.json();
+   // return jsonResponse.data;
+    displayResults(jsonResponse); 
+
 }
+function displayResults(data) {
+
+    movieArea.innerHTML =" ";
+    const movieString = data.results.map((data) => `
+    
+    <div class="movie">
+    <img src=  "https://images.tmdb.org/t/p/w500${data.poster_path}" >
+  </div> 
+        <div class="title"> "${data.title}</div>
+        <div class="imageInfo">"${data.overview}</div>
+        <div class="rating">"${data.vote_count} </div>
+    </div>
+
+    `).join('');
+
+    movieArea.innerHTML= movieArea.innerHTML+movieString;
+    
+
+}
+
+window.onload=()=>{
+            
+            nowplaying();
+
+        }
+    
+/*
 async function getdata(searchTerm){
  
     
@@ -69,13 +88,25 @@ function formSubmit(ev){
 const movieAr=document.querySelector('movieArea');
 movieAr.addEventListener(`submit`,formSubmit(onclick))
 
+
+
+
+
+
+
+/*
 function generateMore(movie){
     return '<img src="${movie.img}">
             <span>${movie.name}</span>
             <span>${movie.rating}</span> 
-            ' 
 
-}
+*/
+
+
+
+
+
+
 
 
 
@@ -87,7 +118,7 @@ const posterImage='https://image.tmdb.org/t/p/w500';
 
 const apiKey = '26a6ca6a064e61eeb4b31ebf6a5a3c01';
 const pageSize = 1;
-const API_URL= "https://api.themoviedb.org/3/search/movie/now_playing?api_key=6a6ca6a064e61eeb4b31ebf6a5a3c01"
+const API_URL= "https://api.themoviedb.org/3/search/movie/now_playing?api_key=6a6ca6a064e61eeb4b31ebf6a5a3c01" ;
 
 
 
@@ -107,7 +138,7 @@ async function getmovies(url){
 }
 async function getResults(searchTerm) {
     const offset = currentApiPage * pageSize;
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&q=${searchTerm}`);
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`);
     const jsonResponse = await response.json();
     return jsonResponse.data;
 }
@@ -154,4 +185,15 @@ showMeMoreBtn.addEventListener('click', handleShowMeMoreClick);
 window.onload=function(){
     getmovies(API_URL);
 }
+
 */
+
+
+
+            
+
+
+
+
+
+
