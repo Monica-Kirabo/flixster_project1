@@ -39,21 +39,29 @@ function displayResults(data) {
 
 window.onload=()=>{
             
-            nowplaying();
-
-        }
+    nowplaying();
     
-/*
+
+}
+    
+
 async function getdata(searchTerm){
  
     
+    const response = await  fetch(movieSearchUrl + "?api_key=" + apiKey + "&query=" + searchTerm);
+    const jsonResponse = await response.json();
+    console.log( jsonResponse);
+    return jsonResponse;
+  //  displayResults(jsonResponse); 
 //const offset = currentApiPage * pageSize;
-const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key= ${apiKey}&q=${searchTerm}`).then(response => response.json())
-  .then(data => console.log(data));
-  return response;
+//const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key= ${apiKey}&q=${searchTerm}`).then(response => response.json())
+  //.then(data => console.log(data));
+//return response;
+ // displayResults(response);
 
 }
 
+/*
 function generateHTML(movies){
 movies.foreach(data=>{
     const  movieTitle=document.createElement('p');
@@ -64,20 +72,28 @@ movies.foreach(data=>{
     movieRating.append(movieRating);
 });
 movieArea.innerHTML=output;
-}
+} */
 async function handleFormSubmit(event) {
     event.preventDefault();
    // movieArea.innerHTML = '';
-    currentSearchTerm = searchInput.value;
+    const currentSearchTerm = searchInput.value;
     const results = await getdata(currentSearchTerm);
-    generateHTML(results);
+    displayResults(results);
     searchInput.value = '';
-    currentApiPage++;
-    showMeMoreBtn.classList.remove('hidden');
+    //currentApiPage++;
+   showMeMoreBtn.classList.remove('hidden');
 }
 
 searchForm.addEventListener('submit', handleFormSubmit);
 
+async function handleShowMeMoreClick(event) {
+    const results = await getdata(currentSearchTerm);
+    displayResults(results);
+    currentApiPage++;
+}
+
+showMeMoreBtn.addEventListener('click', handleShowMeMoreClick); 
+/*
 function formSubmit(ev){
     var formel=document.querySelector("form");
     formel.addEventListener("submit",(ev)=>{
