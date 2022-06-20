@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 body {
@@ -42,8 +42,10 @@ h1 {
     padding: 10px;
 }
 
-.gif img {
-    width: 100%;
+img {
+    width: 200px;
+    border-radius: 6px;
+
 }
 
 .show-more-area {
