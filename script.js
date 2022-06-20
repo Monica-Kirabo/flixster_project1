@@ -8,6 +8,7 @@ const movieArea= document.getElementById('movieArea');
 var currentSearchTerm='';
 const searchInput = document.getElementById('search-input');
 const searchForm = document.getElementById('search-form');
+const showMeMoreBtn = document.getElementById('showMeMoreBtn');
 const IMGPATH= `https://image.tmdb.org/t/p/w1280`;
 
 async function nowplaying(){
@@ -81,7 +82,7 @@ async function handleFormSubmit(event) {
     displayResults(results);
     searchInput.value = '';
     //currentApiPage++;
-   showMeMoreBtn.classList.remove('hidden');
+  // showMeMoreBtn.classList.remove('hidden');
 }
 
 searchForm.addEventListener('submit', handleFormSubmit);
