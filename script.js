@@ -24,7 +24,7 @@ function displayResults(data) {
     //movieArea.innerHTML =" ";
     const movieString = data.results.map((data) => `
     
-    <div class="movie-card">
+    <div class="movie">
     <img src=  "https://images.tmdb.org/t/p/w500${data.poster_path}" >
  
         <div class="mmovie-title"> "${data.title}</div>
