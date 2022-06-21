@@ -21,15 +21,16 @@ async function nowplaying(){
 }
 function displayResults(data) {
 
-    movieArea.innerHTML =" ";
+    //movieArea.innerHTML =" ";
     const movieString = data.results.map((data) => `
     
-    <div class="movie">
+    <div class="movie-card">
     <img src=  "https://images.tmdb.org/t/p/w500${data.poster_path}" >
-  </div> 
-        <span class="title"> "${data.title}</span>
+ 
+        <div class="mmovie-title"> "${data.title}</div>
       
-  <span class="rating">"${data.vote_count} </span>
+  <div class="rating">"${data.vote_count} </div>
+  </div> 
     </div>
 
     `).join('');
@@ -56,7 +57,7 @@ async function getdata(searchTerm){
 
 async function handleFormSubmit(event) {
     event.preventDefault();
-   // movieArea.innerHTML = '';
+    movieArea.innerHTML = '';
     const currentSearchTerm = searchInput.value;
     const results = await getdata(currentSearchTerm);
     displayResults(results);
@@ -92,7 +93,7 @@ async function handleShowMeMoreClick(event) {
 showMeMoreBtn.addEventListener('click', handleShowMeMoreClick); 
 
 
-        <div class="imageInfo">"${data.overview}</div>
+  <div class="imageInfo">"${data.overview}</div>
 
 */
 

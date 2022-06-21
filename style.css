@@ -6,26 +6,54 @@ body {
     background-color:darkslategrey;
     color:aliceblue;
     font-family: Arial, sans-serif;
-
+margin: 0px;
     text-align: center;
 }
+header{
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
 
+}
+.here{
+background-color: black;
+}
 h1 {
     text-transform: uppercase;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
+    background-color:chocolate;
+   
     margin: 20px 0;
 }
 
 #search-form {
     text-align:center;
     margin: 20px 0;
+    background-color: black;
+   
+}
+.search{
+    background-color:aliceblue;
+    border: 2px solid #e9e9ec;
+    border-color: #6c757d;
+    padding:  10px 12px;
+
+    border: none;
+    color:#fff;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1rem;
+padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-left: 12rem;
+    margin: 3rem;
 }
 
 .search-btn {
     background-color: #6c757d;
     border-color: #6c757d;
-    padding:  10px 12px;
+    padding:  5px 5px;
     border: none;
     color: white;
     border-radius: 10px;
@@ -35,28 +63,52 @@ h1 {
 
 #movieArea {
     display: flex;
+ 
     flex-wrap: wrap;
     justify-content: center;
+    vertical-align: text-bottom;
+   
+  
+    background-color:black;
+ 
 }
 
-.gif {
-    flex: 0 0 33.3333%;
-    padding: 10px;
-}
 
+.movie{
+    margin: 1rem;
+    box-shadow: 8.2px 4px 5px rgba(0, 0,0, 0);
+     background-color: chocolate; 
+     position: relative;
+     overflow: hidden;
+}
 img {
     width: 200px;
-    border-radius: 6px;
+    height: 250px;
+    border-radius: 5px;
     object-fit: cover;
+   
+    background-color: chocolate;
 
 }
 
 .show-more-area {
-    padding: 20px;
+    padding: 5px;
 }
 
 .hidden {
     display: none;
 } 
 
+.imageInfo{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:1rem;
+    max-height: 100%;
+    transform: translateY(101%);
 
+}
+.movie:hover.imageInfo{
+    transform: translateY(0);
+}
