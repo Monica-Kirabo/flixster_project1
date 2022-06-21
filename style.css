@@ -61,7 +61,7 @@ padding: 0.5rem 1rem;
     margin-left: 10px;
 }
 
-#movieArea {
+#movies-grid {
     display: flex;
  
     flex-wrap: wrap;
@@ -74,7 +74,7 @@ padding: 0.5rem 1rem;
 }
 
 
-.movie{
+.movie-card{
     margin: 1rem;
     box-shadow: 8.2px 4px 5px rgba(0, 0,0, 0);
      background-color: chocolate; 

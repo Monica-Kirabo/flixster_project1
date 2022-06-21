@@ -4,11 +4,13 @@ const nowPlayingUrl = `https://api.themoviedb.org/3/movie/now_playing`;
 const movieImageUrl = `https://api.themoviedb.org/3/movie`;
 const apiKey="26a6ca6a064e61eeb4b31ebf6a5a3c01";
 //const apiUrl=" https://api.themoviedb.org/3/search/movie/now_playing"
-const movieArea= document.getElementById('movieArea');
+const movieArea= document.getElementById('movies-grid');
 var currentSearchTerm='';
 const searchInput = document.getElementById('search-input');
 const searchForm = document.getElementById('search-form');
-const showMeMoreBtn = document.getElementById('showMeMoreBtn');
+const showMeMoreBtn = document.getElementById('load-more-movies-btn');
+
+const closeBtn= document.getElementById('close-search-btn');
 const IMGPATH= `https://image.tmdb.org/t/p/w1280`;
 var currentApiPage=1;
 async function nowplaying(){
@@ -21,15 +23,14 @@ async function nowplaying(){
 }
 function displayResults(data) {
 
-    //movieArea.innerHTML =" ";
     const movieString = data.results.map((data) => `
     
-    <div class="movie">
-    <img src=  "https://images.tmdb.org/t/p/w500${data.poster_path}" >
+    <div class="movie-card">
+    <img class="movie-poster" src=  "https://images.tmdb.org/t/p/w500${data.poster_path}" >
  
-        <div class="mmovie-title"> "${data.title}</div>
+        <div class="movie-title"> "${data.title}</div>
       
-  <div class="rating">"${data.vote_count} </div>
+  <div class="movie-votes">"${data.vote_count} </div>
   </div> 
     </div>
 
@@ -53,6 +54,7 @@ async function getdata(searchTerm){
     console.log( jsonResponse);
     return jsonResponse;
 
+  closeBtn.classList.remove('hidden');
 }
 
 async function handleFormSubmit(event) {
@@ -63,7 +65,6 @@ async function handleFormSubmit(event) {
     displayResults(results);
     searchInput.value = '';
     currentApiPage++;
-  // showMeMoreBtn.classList.remove('hidden');
 }
 
 searchForm.addEventListener('submit', handleFormSubmit);
@@ -81,21 +82,18 @@ console.log(res);
 
 showMeMoreBtn.addEventListener('click', handleShowMeMoreClick);
 
-/*
-async function handleShowMeMoreClick(event) {
-    currentApiPage++;
-    const results = await getdata(currentSearchTerm);
-  
-    displayResults(results);
- 
+
+async function closeButton(event) {
+    event.preventDefault();
+    //currentApiPage++;
+    const res = await getdata(currentSearchTerm);
+    
+    movieArea.innerHTML =" ";
+    
 }
 
-showMeMoreBtn.addEventListener('click', handleShowMeMoreClick); 
+closeBtn.addEventListener('click', closeBtn);
 
-
-  <div class="imageInfo">"${data.overview}</div>
-
-*/
 
 
 
