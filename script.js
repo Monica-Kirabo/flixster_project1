@@ -12,11 +12,12 @@ const showMeMoreBtn = document.getElementById('showMeMoreBtn');
 const IMGPATH= `https://image.tmdb.org/t/p/w1280`;
 var currentApiPage=1;
 async function nowplaying(){
-    const response = await fetch(nowPlayingUrl + "?api_key=" + apiKey);
+    const response = await fetch(nowPlayingUrl + "?api_key=" + apiKey+"&page="+currentApiPage);
     const jsonResponse = await response.json();
-   // return jsonResponse.data;
+   
+   console.log(jsonResponse);
     displayResults(jsonResponse); 
-
+    return jsonResponse;
 }
 function displayResults(data) {
 
@@ -70,8 +71,10 @@ searchForm.addEventListener('submit', handleFormSubmit);
 async function handleShowMeMoreClick(event) {
     event.preventDefault();
     currentApiPage++;
-    const results = await getdata(currentSearchTerm);
-    displayResults(results);
+    const res = await nowplaying();
+    //const results = await getdata(currentSearchTerm);
+console.log(res);
+    displayResults(res);
     
 }
 
