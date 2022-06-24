@@ -1,5 +1,3 @@
-
-
 ## Week 1 Assignment: Flixster
 
 Submitted by: **Monica Kirabo**
@@ -34,7 +32,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### STRETCH FEATURES
 
-- [ ] Deploy website using GitHub Pages. 
+- [ ] Deploy website using GitHub Pages.
 - [ ] Allow user to view more details about a movie within a popup.
 - [ ] Improve the user experience through CSS & animation.
 - [ ] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
@@ -42,21 +40,19 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+`https://www.loom.com/share/62c3c5ee93c341e590f0a83665dc2ffb`
 
 ### Reflection
 
-* Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
+- Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
- Almost all part in the labs helped me to complete the assignment. I felt unprepared to use 'foreach' because it kept giving me an error that I didn't know how to solve. 
+Almost all part in the labs helped me to complete the assignment. I felt unprepared to use 'foreach' because it kept giving me an error that I didn't know how to solve.
 
-* If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-  
+- If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
+
 If I had more time, I would find a way to understand why most of my codes were not working and correct them instead of changing them completely. I would also add more features if I had more time.
 
-* Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+- Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
 The HTML and CSS part worked really well for me. The script.js part didn't go well and kept giving me an error about my key which made it hard for me to figure out the rest of the project.
 
